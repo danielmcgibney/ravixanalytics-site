@@ -1,0 +1,165 @@
+
+
+
+<div id="ols-fitting" class="section level1">
+<h1>OLS Fitting</h1>
+<p><code>ravix.ols()</code> fits an ordinary least squares model using
+an R-style formula string and returns a fitted model object.</p>
+<div id="basic-usage" class="section level2">
+<h2>Basic usage</h2>
+<pre class="python"><code>import ravix
+
+df    = ravix.get_data(&quot;Betas.csv&quot;)
+model = ravix.ols(&quot;AAPL ~ SPY&quot;, df)
+model.summary()</code></pre>
+<pre><code>Summary of OLS Regression Analysis:
+======================================================
+
+Coefficients:
+------------------------------------------------------
+              Estimate  Std. Error  t-value    p-value
+Intercept     0.014223    0.011989    1.186     0.2437
+SPY             1.2266     0.21591    5.681   2.24e-06 ***
+
+Model Statistics:
+------------------------------------------------------
+Residual Std. Error: 0.069147
+R-squared:      0.4870          AIC: -88.2432
+Adj. R-squared: 0.4719          BIC: -85.0761
+F-statistic: 32.2745 on 1 and 34 DF, p-value: 2.24e-06
+======================================================</code></pre>
+</div>
+<div id="formula-syntax" class="section level2">
+<h2>Formula syntax</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Formula</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&quot;y ~ x&quot;</code></td>
+<td>Simple linear regression</td>
+</tr>
+<tr class="even">
+<td><code>&quot;y ~ x1 + x2&quot;</code></td>
+<td>Multiple regression</td>
+</tr>
+<tr class="odd">
+<td><code>&quot;y ~ x1 + x2 + x1:x2&quot;</code></td>
+<td>Interaction only</td>
+</tr>
+<tr class="even">
+<td><code>&quot;y ~ x1 * x2&quot;</code></td>
+<td>Main effects and interaction</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="accessing-model-attributes" class="section level2">
+<h2>Accessing model attributes</h2>
+<p>The fitted object is a regression model object:</p>
+<pre class="python"><code>print(&quot;R-squared:      &quot;, round(model.rsquared, 4))</code></pre>
+<pre><code>R-squared:       0.487</code></pre>
+<pre class="python"><code>print(&quot;Adj. R-squared: &quot;, round(model.rsquared_adj, 4))</code></pre>
+<pre><code>Adj. R-squared:  0.4719</code></pre>
+<pre class="python"><code>print(model.params)</code></pre>
+<pre><code>Intercept    0.014223
+SPY          1.226589
+dtype: float64</code></pre>
+<pre class="python"><code>model.params          # Series — coefficient estimates
+model.resid           # Series — residuals
+model.fittedvalues    # Series — fitted values
+model.rsquared        # float  — R²
+model.rsquared_adj    # float  — Adjusted R²
+model.pvalues         # Series — coefficient p-values
+model.bse             # Series — coefficient standard errors</code></pre>
+</div>
+<div id="confidence-and-prediction-intervals" class="section level2">
+<h2>Confidence and prediction intervals</h2>
+<pre class="python"><code>model.conf_int(alpha=0.05)</code></pre>
+<pre><code>                  0         1
+Intercept -0.010142  0.038588
+SPY        0.787811  1.665368</code></pre>
+<pre class="python"><code>import pandas as pd
+new_df = pd.DataFrame({&quot;SPY&quot;: [0.005, 0.010, 0.015]})
+ravix.intervals(model, new_df, interval=&quot;confidence&quot;)</code></pre>
+<pre><code>   Prediction  Lower Bound  Upper Bound
+0    0.020356    -0.003498     0.044209
+1    0.026489     0.002952     0.050025
+2    0.032622     0.009201     0.056043</code></pre>
+<pre class="python"><code>ravix.intervals(model, new_df, interval=&quot;prediction&quot;)</code></pre>
+<pre><code>   Prediction  Lower Bound  Upper Bound
+0    0.020356    -0.122179     0.162890
+1    0.026489    -0.115993     0.168971
+2    0.032622    -0.109841     0.175085</code></pre>
+</div>
+<div id="logistic-regression" class="section level2">
+<h2>Logistic Regression</h2>
+<pre class="python"><code># Get data
+df = ravix.get_data(&quot;loan_default.csv&quot;)
+df = df[df.columns[1:]]
+
+# Logistic
+logreg = ravix.logistic(&quot;Loan_Default ~ Age + Marital_Status + Dependents&quot;, df)
+
+# Model Summary
+logreg.summary()</code></pre>
+<pre><code>Summary of Logistic Regression Analysis:
+==========================================================
+
+Coefficients (Log-Odds):
+----------------------------------------------------------
+                  Estimate  Std. Error  t-value    p-value
+Intercept          -1.9135     0.51144   -3.741     0.0002 ***
+Age              -0.0081359    0.010230   -0.795     0.4265
+Marital_Statu...   0.12677     0.32743    0.387     0.6986
+Marital_Statu...   0.42844     0.56198    0.762     0.4458
+Marital_Statu... -0.060775     0.33662   -0.181     0.8567
+Marital_Statu...   0.68904     0.62056    1.110     0.2668
+Dependents       -0.056555    0.090777   -0.623     0.5333
+
+Model Statistics:
+----------------------------------------------------------
+Log-Likelihood: -395.0289       AIC: 804.0579
+Pseudo R-squared: 0.002323      BIC: -7992.44
+==========================================================</code></pre>
+</div>
+<div id="poisson-regression" class="section level2">
+<h2>Poisson Regression</h2>
+<pre class="python"><code># Get data
+df = ravix.get_data(&quot;video_engagement.csv&quot;)
+
+# Poisson
+pois = ravix.poisson(&quot;Likes ~ .&quot;, df)
+
+# Model summary
+pois.summary()</code></pre>
+<pre><code>Summary of Poisson Regression Analysis:
+======================================================
+
+Coefficients (Log-Rate):
+------------------------------------------------------
+              Estimate  Std. Error  t-value    p-value
+Intercept       10.235   0.0008990 11384.796    &lt; 2e-16 ***
+Promoter_B     -2.1581   0.0010739 -2009.636    &lt; 2e-16 ***
+Age          0.0048345   2.408e-06 2007.940    &lt; 2e-16 ***
+Sentiment    0.0045228   0.0008673    5.215   1.84e-07 ***
+
+Model Statistics:
+------------------------------------------------------
+Log-Likelihood: -188742.02      AIC: 377492.04
+Deviance: 375545.73             BIC: 374772.12
+Null Deviance: 12989055.39
+Pseudo R-squared: 1
+Degrees of Freedom: 3 (Model), 153 (Residual)
+======================================================</code></pre>
+<blockquote>
+<p><strong>Textbook reference:</strong> OLS fitting is covered in
+Chapters 3–9 of <em>Applied Linear Regression for Business Analytics
+with Python</em>.</p>
+</blockquote>
+</div>
+</div>

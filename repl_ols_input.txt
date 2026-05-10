@@ -1,0 +1,10 @@
+import ravix
+
+# Load the marketing toys dataset
+df = ravix.get_data("marketing_toys.csv")
+
+# Fit OLS with formula syntax
+model = ravix.ols("Sales ~ Toy + Marketing + Toy:Marketing", df)
+
+# Print formatted regression summary
+model.summary()

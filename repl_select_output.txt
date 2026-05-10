@@ -1,0 +1,4 @@
+Initial AIC = 3092.2909
+Step 1: remove Commercial (AIC=3090.8494)
+No improvement found. Stopping at step 2.
+Final AIC = 3090.8494

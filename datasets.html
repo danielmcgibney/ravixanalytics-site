@@ -1,0 +1,122 @@
+
+
+
+<div id="datasets" class="section level1">
+<h1>Datasets</h1>
+<p>Every dataset from <em>Applied Linear Regression for Business
+Analytics</em> is bundled with the package. No paths, no downloads.</p>
+<div id="list-all-datasets" class="section level2">
+<h2>List all datasets</h2>
+<pre class="python"><code>import ravix
+ravix.get_data()</code></pre>
+<pre><code>Available data files in Ravix (v1.0.0):
+  - airbnb.csv
+  - betas.csv
+  - charges.csv
+  - countries.csv
+  - employment.csv
+  - facebook.csv
+  - house_prices.csv
+  - hr_retention.csv
+  - insurance.csv
+  - job_changes.csv
+  - loan_default.csv
+  - marketing_toys.csv
+  - price_size.csv
+  - salary_churn.csv
+  - sales.csv
+  - sales_ads.csv
+  - tire_sales.csv
+  - top200.csv
+  - tweet_engagement.csv
+  - vacation.csv
+  - video_engagement.csv</code></pre>
+</div>
+<div id="load-and-inspect" class="section level2">
+<h2>Load and inspect</h2>
+<pre class="python"><code>df = ravix.get_data(&quot;Betas.csv&quot;)
+df.info()</code></pre>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 36 entries, 0 to 35
+Data columns (total 9 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   Unnamed: 0  36 non-null     object 
+ 1   AAPL        36 non-null     float64
+ 2   CAT         36 non-null     float64
+ 3   JNJ         36 non-null     float64
+ 4   MCD         36 non-null     float64
+ 5   PG          36 non-null     float64
+ 6   MSFT        36 non-null     float64
+ 7   XOM         36 non-null     float64
+ 8   SPY         36 non-null     float64
+dtypes: float64(8), object(1)
+memory usage: 2.7+ KB</code></pre>
+<pre class="python"><code>df.describe()</code></pre>
+<pre><code>            AAPL        CAT        JNJ  ...       MSFT        XOM        SPY
+count  36.000000  36.000000  36.000000  ...  36.000000  36.000000  36.000000
+mean    0.032999   0.017261   0.010656  ...   0.030299  -0.000624   0.015307
+std     0.095151   0.082262   0.053878  ...   0.053613   0.102811   0.054134
+min    -0.184045  -0.204407  -0.115917  ...  -0.080090  -0.251261  -0.129987
+25%    -0.035885  -0.037298  -0.019163  ...   0.005981  -0.059978  -0.000434
+50%     0.055795   0.039862   0.020563  ...   0.034708   0.000158   0.022039
+75%     0.101165   0.061480   0.041866  ...   0.062072   0.072237   0.042849
+max     0.214380   0.186986   0.144208  ...   0.136326   0.223861   0.133610
+
+[8 rows x 8 columns]</code></pre>
+</div>
+<div id="betas.csv-column-reference" class="section level2">
+<h2><code>Betas.csv</code> — column reference</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>AAPL</code></td>
+<td>float</td>
+<td>Apple daily return</td>
+</tr>
+<tr class="even">
+<td><code>CAT</code></td>
+<td>float</td>
+<td>Caterpillar daily return</td>
+</tr>
+<tr class="odd">
+<td><code>JNJ</code></td>
+<td>float</td>
+<td>Johnson &amp; Johnson daily return</td>
+</tr>
+<tr class="even">
+<td><code>MCD</code></td>
+<td>float</td>
+<td>McDonald’s daily return</td>
+</tr>
+<tr class="odd">
+<td><code>PG</code></td>
+<td>float</td>
+<td>Procter &amp; Gamble daily return</td>
+</tr>
+<tr class="even">
+<td><code>MSFT</code></td>
+<td>float</td>
+<td>Microsoft daily return</td>
+</tr>
+<tr class="odd">
+<td><code>XOM</code></td>
+<td>float</td>
+<td>ExxonMobil daily return</td>
+</tr>
+<tr class="even">
+<td><code>SPY</code></td>
+<td>float</td>
+<td>S&amp;P 500 ETF daily return (market)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>

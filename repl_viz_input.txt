@@ -1,0 +1,7 @@
+import ravix
+
+# Load the stock data set
+df = ravix.get_data("betas.csv")
+
+# Create a correlation plot
+ravix.plot_cor(df)

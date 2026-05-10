@@ -1,0 +1,8 @@
+import ravix
+
+# Load and format the house prices dataset
+df = ravix.get_data("house_prices.csv")
+df.columns = ['Price', 'Rooms', 'Income', 'TaxRate', 'Commercial']
+
+# Run backward elimination
+SW = ravix.stepwise("Price ~ .", data = df, verbose = True)

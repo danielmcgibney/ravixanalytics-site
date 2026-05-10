@@ -1,0 +1,13 @@
+import ravix
+
+# Load the marketing toys dataset
+df = ravix.get_data("marketing_toys.csv")
+
+# Fit OLS with formula syntax
+model = ravix.ols("Sales ~ Toy + Marketing + Toy:Marketing", df)
+
+# Nonconstant Variance test (heteroscedasticity)
+ravix.ncv(model)
+
+# Shapiro-Wilk test (normality)
+ravix.shapiro(model)

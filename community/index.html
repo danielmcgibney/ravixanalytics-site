@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Community | Ravix</title>
+<meta name="description" content="Get help and connect with other Ravix users: GitHub source and issues, textbook resources, Stack Overflow, and the project code of conduct." id="meta-description"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://ravixanalytics.com/community/" id="link-canonical"/>
+<link rel="icon" type="image/png" href="https://businessregression.com/images/ravix_logo.png"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Ravix"/>
+<meta property="og:title" content="Community | Ravix" id="og-title"/>
+<meta property="og:description" content="Get help and connect with other Ravix users: GitHub source and issues, textbook resources, Stack Overflow, and the project code of conduct." id="og-description"/>
+<meta property="og:url" content="https://ravixanalytics.com/community/" id="og-url"/>
+<meta property="og:image" content="https://businessregression.com/images/ravix_logo.png"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Community | Ravix" id="twitter-title"/>
+<meta name="twitter:description" content="Get help and connect with other Ravix users: GitHub source and issues, textbook resources, Stack Overflow, and the project code of conduct." id="twitter-description"/>
+<meta name="twitter:image" content="https://businessregression.com/images/ravix_logo.png"/>
+
+<!-- JSONLD_START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Community | Ravix",
+      "description": "Get help and connect with other Ravix users: GitHub source and issues, textbook resources, Stack Overflow, and the project code of conduct.",
+      "url": "https://ravixanalytics.com/community/",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Ravix",
+        "url": "https://ravixanalytics.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ravix",
+          "item": "https://ravixanalytics.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Community",
+          "item": "https://ravixanalytics.com/community/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- JSONLD_END -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & tokens ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --green:     #1a4f3a;
+  --green-mid: #2d6e52;
+  --green-lt:  #e8f2ed;
+  --gold:      #b87333;
+  --gold-lt:   #faf3eb;
+  --bg:        #f7f6f2;
+  --bg2:       #eeecea;
+  --border:    #dcdad4;
+  --border2:   #cac8c2;
+  --text:      #1c1b18;
+  --text2:     #5a5852;
+  --text3:     #9a9890;
+  --code-bg:   #f0eeea;
+  --radius:    6px;
+  --shadow:    0 2px 12px rgba(0,0,0,.07);
+  --shadow-md: 0 4px 24px rgba(0,0,0,.09);
+}
+body{
+  background:#fff; color:var(--text);
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:15px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--green); text-decoration:none}
+a:hover{color:var(--green-mid); text-decoration:underline}
+img{max-width:100%;height:auto}
+
+/* ── Navbar ── */
+.nav{
+  position:sticky; top:0; z-index:300;
+  height:58px; background:rgba(255,255,255,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center;
+  padding:0 32px; gap:0;
+}
+.nav-brand{
+  display:flex; align-items:center; gap:9px;
+  text-decoration:none; margin-right:28px; flex-shrink:0; cursor:pointer;
+}
+.nav-brand img{height:24px; display:block}
+.nav-brand span{
+  font-family:'Playfair Display',serif; font-weight:700;
+  font-size:16px; color:var(--green); letter-spacing:-.01em;
+}
+.nav-sep{width:1px; height:18px; background:var(--border2); margin:0 12px; flex-shrink:0}
+.nav-links{display:flex; gap:2px; flex-wrap:nowrap}
+.nav-links button, .nav-links a{
+  background:none; border:none; cursor:pointer;
+  color:var(--text2); font-family:'IBM Plex Sans',sans-serif;
+  font-size:13.5px; font-weight:500;
+  padding:6px 13px; border-radius:5px;
+  transition:color .15s,background .15s;
+  text-decoration:none; display:inline-block; white-space:nowrap;
+}
+.nav-links button:hover, .nav-links a:hover{color:var(--text); background:var(--bg)}
+.nav-links button.active, .nav-links a.active{color:var(--green); background:var(--green-lt); font-weight:600}
+.nav-right{margin-left:auto; display:flex; align-items:center; gap:10px}
+.nav-pill{
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  background:var(--bg); border:1px solid var(--border2);
+  color:var(--text2); padding:3px 9px; border-radius:3px;
+}
+.nav-gh{
+  display:flex; align-items:center; gap:6px;
+  color:var(--text2); font-size:13px; font-weight:500;
+  padding:6px 12px; border-radius:5px;
+  border:1px solid var(--border2);
+  text-decoration:none; transition:all .15s;
+}
+.nav-gh:hover{color:var(--green); border-color:var(--green)}
+
+/* ── Pages ── */
+.page{display:none}
+.page.active{display:flex; flex-direction:column; min-height:calc(100vh - 58px)}
+#page-home.active{display:block}
+
+/* ── Sidebar layout ── */
+.page-with-sidebar{display:flex; flex:1}
+.sidebar{
+  width:252px; flex-shrink:0;
+  background:var(--bg); border-right:1px solid var(--border);
+  padding:20px 0; overflow-y:auto;
+  position:sticky; top:58px; height:calc(100vh - 58px);
+}
+.sidebar-section{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--text3);
+  padding:14px 18px 5px; font-weight:500;
+}
+.sidebar a, .sidebar button.sb-link{
+  display:block; padding:5px 18px;
+  font-size:13.5px; color:var(--text2); text-decoration:none;
+  border-left:2px solid transparent; margin:1px 0;
+  transition:color .15s,background .15s;
+  background:none; border-top:none; border-right:none; border-bottom:none;
+  font-family:'IBM Plex Sans',sans-serif; cursor:pointer; width:100%; text-align:left;
+}
+.sidebar a:hover,.sidebar button.sb-link:hover{color:var(--text); background:rgba(0,0,0,.03); text-decoration:none}
+.sidebar a.active,.sidebar button.sb-link.active{
+  color:var(--green); font-weight:600;
+  border-left-color:var(--green); background:var(--green-lt);
+}
+.sidebar a.sub,.sidebar button.sb-link.sub{padding-left:30px}
+
+/* ── Content area ── */
+.content{
+  flex:1; min-width:0;
+  padding:48px 52px 80px;
+}
+.doc-section{display:none}
+.doc-section.active{display:block}
+
+/* ── TOC ── */
+.toc{
+  display:none; width:210px; flex-shrink:0;
+  padding:48px 0 0 28px;
+  position:sticky; top:58px; height:calc(100vh - 58px);
+  overflow-y:auto;
+}
+.toc-title{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--text3);
+  margin-bottom:10px;
+}
+.toc a{
+  display:block; font-size:12.5px; color:var(--text2);
+  padding:3px 0 3px 10px;
+  border-left:2px solid var(--border); line-height:1.4;
+  transition:color .15s,border-color .15s; text-decoration:none;
+}
+.toc a:hover{color:var(--green); border-left-color:var(--green)}
+.toc a.l2{padding-left:18px}
+
+/* ── Typography ── */
+h1{
+  font-family:'Playfair Display',serif; font-weight:700;
+  font-size:clamp(26px,3.5vw,38px); letter-spacing:-.025em;
+  line-height:1.12; margin-bottom:6px;
+}
+h2{
+  font-family:'Playfair Display',serif; font-weight:700;
+  font-size:clamp(19px,2.5vw,26px); letter-spacing:-.02em;
+  line-height:1.2; margin:38px 0 10px;
+  padding-top:6px;
+}
+h2:first-of-type{border-top:none; margin-top:20px}
+h3{
+  font-family:'IBM Plex Sans',sans-serif; font-weight:600;
+  font-size:16px; margin:24px 0 7px;
+}
+h4{font-weight:600; font-size:14px; margin:16px 0 5px}
+p{margin:0 0 13px}
+ul,ol{margin:0 0 13px; padding-left:22px}
+li{margin-bottom:3px}
+hr{border:none; border-top:1px solid var(--border); margin:32px 0}
+strong{font-weight:600}
+em{font-style:italic}
+
+/* ── Tables ── */
+table{width:100%; border-collapse:collapse; font-size:13.5px; margin:14px 0 20px}
+th{
+  background:var(--bg); border:1px solid var(--border);
+  padding:8px 13px; text-align:left; font-weight:600; font-size:13px;
+}
+td{border:1px solid var(--border); padding:7px 13px; vertical-align:top}
+tr:nth-child(even) td{background:#fafaf9}
+
+/* ── Code ── */
+pre{
+  background:var(--code-bg); border:1px solid var(--border);
+  border-radius:var(--radius); padding:15px 18px;
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+  line-height:1.85; overflow-x:auto; margin:10px 0 18px;
+  position:relative;
+}
+code{font-family:'IBM Plex Mono',monospace; font-size:.88em}
+p code,li code,td code{
+  background:var(--code-bg); color:var(--green);
+  padding:1px 5px; border-radius:3px;
+}
+kbd{
+  font-family:'IBM Plex Mono',monospace; font-size:.82em;
+  background:var(--bg); border:1px solid var(--border2);
+  border-radius:3px; padding:1px 5px;
+}
+.copy-wrap{position:relative}
+.copy-btn{
+  position:absolute; top:8px; right:10px;
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  color:var(--text3); background:var(--bg);
+  border:1px solid var(--border2); border-radius:3px;
+  padding:2px 7px; cursor:pointer; transition:all .15s;
+}
+.copy-btn:hover{color:var(--green); border-color:var(--green)}
+
+/* Syntax colours — SPA baked-in */
+.kw{color:#1a4f3a; font-weight:500}
+.st{color:#b87333}
+.co{color:#9a9890}
+.fn{color:#2d6e52}
+.nb{color:#3b7dd8}
+.num{color:#7c5bae}
+
+/* ── Pandoc html_fragment compatibility ────────────────────────────────────
+   Pandoc wraps code in div.sourceCode > pre.sourceCode > code.sourceCode
+   and uses different span classes than the baked-in SPA syntax colours.
+   These rules make fragment output look native.
+──────────────────────────────────────────────────────────────────────────── */
+
+/* Strip the div.sourceCode wrapper — let pre carry all styling */
+div.sourceCode{margin:10px 0 18px}
+div.sourceCode pre{margin:0}
+pre.sourceCode{
+  background:var(--code-bg); border:1px solid var(--border);
+  border-radius:var(--radius); padding:15px 18px;
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+  line-height:1.85; overflow-x:auto;
+}
+pre.sourceCode code{background:none; padding:0; border-radius:0; font-size:inherit}
+
+/* Python/R chunk text output — bare <pre><code> with no language class */
+.doc-section pre:not([class]){
+  background:var(--bg); border:1px solid var(--border2);
+  color:var(--text2);
+}
+/* Language-classed code blocks from knitr/Pandoc */
+.doc-section pre.python,
+.doc-section pre.bash,
+.doc-section pre.r {
+  background:var(--code-bg); border:1px solid var(--border);
+  color:var(--text);
+}
+
+/* Map Pandoc span classes → SPA colour tokens */
+code span.kw{color:#1a4f3a; font-weight:500}  /* keyword        */
+code span.cf{color:#1a4f3a; font-weight:500}  /* control flow   */
+code span.im{color:#1a4f3a; font-weight:500}  /* import         */
+code span.st{color:#b87333}                   /* string         */
+code span.vs{color:#b87333}                   /* verbatim str   */
+code span.sc{color:#b87333}                   /* special char   */
+code span.co{color:#9a9890; font-style:italic}/* comment        */
+code span.fu{color:#2d6e52}                   /* function name  */
+code span.bu{color:#3b7dd8}                   /* built-in       */
+code span.dv{color:#7c5bae}                   /* integer        */
+code span.fl{color:#7c5bae}                   /* float          */
+code span.cn{color:#7c5bae}                   /* constant       */
+code span.op{color:var(--text)}               /* operator       */
+code span.va{color:var(--text)}               /* variable       */
+/* Map highlight.js classes → same colour tokens (for fragment syntax highlighting) */
+.hljs-keyword,.hljs-built_in{color:#1a4f3a;font-weight:500}
+.hljs-string,.hljs-number{color:#b87333}
+.hljs-comment{color:#9a9890;font-style:italic}
+.hljs-title.function_{color:#2d6e52}
+.hljs-title,.hljs-attr{color:#2d6e52}
+.hljs-variable,.hljs-operator{color:var(--text)}
+.hljs-literal{color:#7c5bae}
+
+/* Blockquotes → callout-note style (used for Tips / Notes in fragments) */
+blockquote{
+  border-left:4px solid var(--gold); background:var(--gold-lt);
+  border-radius:var(--radius); padding:13px 17px;
+  margin:18px 0; font-size:14px;
+}
+blockquote p{margin:0}
+blockquote p + p{margin-top:6px}
+blockquote strong:first-child{color:var(--gold); display:block; margin-bottom:3px}
+
+/* knitr figure output */
+.doc-section div.figure{margin:14px 0}
+.doc-section p.caption{font-size:12px; color:var(--text3); font-style:italic; margin-top:4px}
+
+/* ── Callouts ── */
+.callout{
+  border-left:4px solid; border-radius:var(--radius);
+  padding:13px 17px; margin:18px 0; font-size:14px;
+}
+.callout-tip{border-color:var(--green); background:var(--green-lt)}
+.callout-note{border-color:var(--gold); background:var(--gold-lt)}
+.callout-title{font-weight:600; margin-bottom:4px}
+
+/* ── Badges ── */
+.badge{
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  padding:2px 8px; border-radius:3px; font-weight:500;
+  display:inline-block; margin-right:4px;
+}
+.badge-g{background:var(--green-lt); color:var(--green); border:1px solid #b8d8c8}
+.badge-gold{background:var(--gold-lt); color:var(--gold); border:1px solid #e0c090}
+.badge-gr{background:var(--bg); color:var(--text2); border:1px solid var(--border2)}
+
+/* ── Buttons ── */
+.btn-p{
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--green); color:#fff; border:none;
+  border-radius:5px; padding:10px 20px;
+  font-family:'IBM Plex Sans',sans-serif; font-size:14px; font-weight:600;
+  text-decoration:none; cursor:pointer; transition:background .15s;
+}
+.btn-p:hover{background:var(--green-mid); color:#fff; text-decoration:none}
+.btn-o{
+  display:inline-flex; align-items:center; gap:7px;
+  background:transparent; color:var(--text);
+  border:1px solid var(--border2); border-radius:5px; padding:10px 20px;
+  font-family:'IBM Plex Sans',sans-serif; font-size:14px; font-weight:500;
+  text-decoration:none; cursor:pointer; transition:all .15s;
+}
+.btn-o:hover{border-color:var(--green); color:var(--green); background:var(--green-lt); text-decoration:none}
+
+/* ── Hero ── */
+.hero-band{
+  background:#fff; border-bottom:1px solid var(--border);
+  padding:72px 40px 60px; text-align:center;
+}
+.hero-logo{height:200px; width:auto; margin-bottom:28px; display:inline-block}
+.hero h1{
+  font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,52px);
+  font-weight:700; letter-spacing:-.025em; line-height:1.1;
+  margin-bottom:14px; border:none; padding:0;
+}
+.hero-sub{
+  font-size:17px; font-weight:300; color:var(--text2);
+  max-width:560px; margin:0 auto 24px; line-height:1.75;
+}
+.hero-release{
+  display:inline-block; font-size:13px;
+  background:var(--bg); border:1px solid var(--border);
+  border-radius:5px; padding:7px 18px; margin-bottom:26px; color:var(--text2);
+}
+.hero-release strong{color:var(--green)}
+.hero-actions{
+  display:flex; gap:10px; justify-content:center;
+  flex-wrap:wrap; margin-top:4px;
+}
+
+/* ── Feature grid ── */
+.wrap{max-width:1060px; margin:0 auto; padding:0 40px}
+.feat-grid{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--border);
+  border:1px solid var(--border); border-radius:var(--radius);
+  overflow:hidden; margin:28px 0;
+}
+.feat-cell{
+  background:#fff; padding:24px 20px; transition:background .15s;
+}
+.feat-cell:hover{background:var(--green-lt)}
+.feat-cell h3{
+  font-family:'IBM Plex Sans',sans-serif; font-weight:600;
+  font-size:14px; margin:0 0 5px; border:none; padding:0;
+}
+.feat-cell p{font-size:13px; color:var(--text2); line-height:1.6; margin:0}
+
+/* ── REPL ── */
+.repl-wrap{
+  border:1px solid var(--border); border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow-md); margin:20px 0;
+}
+.repl-bar{
+  background:var(--bg2); border-bottom:1px solid var(--border);
+  padding:9px 15px; display:flex; align-items:center; gap:7px;
+}
+.repl-dot{width:10px; height:10px; border-radius:50%; display:inline-block}
+.repl-bar span{
+  font-family:'IBM Plex Mono',monospace; font-size:12px;
+  color:var(--text3); margin-left:5px;
+}
+.repl-body{display:flex; min-height:480px}
+#repl-code{
+  flex:1; background:#fff; border:none; outline:none; resize:none;
+  padding:18px 18px; font-family:'IBM Plex Mono',monospace; font-size:13px;
+  color:var(--text); line-height:1.8;
+  border-right:1px solid var(--border);
+}
+#repl-out{
+  width:492px; background:var(--bg); padding:20px 18px;
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+  color:var(--text2); overflow-y:auto; line-height:1.7;
+}
+#repl-out pre{
+  background:none; border:none; padding:0; margin:0;
+  font-family:inherit; font-size:inherit; color:inherit;
+  line-height:inherit; white-space:pre;
+}
+#repl-out img{
+  display:block; max-width:100%; height:auto;
+  margin:10px 0; border:1px solid var(--border); border-radius:4px;
+}
+.repl-foot{
+  border-top:1px solid var(--border); padding:9px 15px;
+  display:flex; justify-content:space-between; align-items:center;
+  background:var(--bg2);
+}
+.repl-pills{display:flex; gap:6px; flex-wrap:wrap}
+.rpill{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+  padding:4px 11px; border:1px solid var(--border2);
+  border-radius:3px; background:transparent; color:var(--text2);
+  cursor:pointer; transition:all .15s;
+}
+.rpill:hover,.rpill.active{border-color:var(--green); color:var(--green); background:var(--green-lt)}
+.run-btn{
+  background:var(--green); color:#fff; border:none;
+  border-radius:5px; padding:7px 16px; font-size:13px; font-weight:600;
+  cursor:pointer; font-family:'IBM Plex Sans',sans-serif; transition:background .15s;
+}
+.run-btn:hover{background:var(--green-mid)}
+.clr-btn{
+  background:transparent; color:var(--text2); border:1px solid var(--border2);
+  border-radius:5px; padding:7px 12px; font-size:13px; font-weight:500;
+  cursor:pointer; font-family:'IBM Plex Sans',sans-serif; transition:all .15s;
+  margin-right:6px;
+}
+
+/* ── Ecosystem ── */
+.eco-section{background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:56px 0}
+.eco-tabs{display:flex; gap:6px; flex-wrap:wrap; margin:22px 0 18px}
+.etab{
+  font-size:13px; padding:6px 15px; border:1px solid var(--border2);
+  border-radius:3px; background:transparent; color:var(--text2);
+  cursor:pointer; transition:all .15s; font-family:'IBM Plex Sans',sans-serif; font-weight:500;
+}
+.etab:hover,.etab.active{border-color:var(--green); color:var(--green); background:var(--green-lt)}
+.eco-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:13px}
+.eco-card{
+  background:#fff; border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px 18px;
+  transition:border-color .15s,transform .15s;
+}
+.eco-card:hover{border-color:var(--green-mid); transform:translateY(-1px)}
+.eco-card h4{font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:13.5px; margin-bottom:4px}
+.eco-card p{font-size:12.5px; color:var(--text2); line-height:1.5; margin:0}
+
+/* ── Function cards ── */
+.fn-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(275px,1fr)); gap:12px; margin:22px 0}
+.fn-card{
+  background:#fff; border:1px solid var(--border);
+  border-radius:var(--radius); padding:15px 17px;
+  transition:border-color .15s,box-shadow .15s;
+}
+.fn-card:hover{border-color:var(--green-mid); box-shadow:0 2px 10px rgba(26,79,58,.08)}
+.fn-name{font-family:'IBM Plex Mono',monospace; font-size:13.5px; font-weight:500; color:var(--green)}
+.fn-desc{font-size:12.5px; color:var(--text2); margin-top:3px; line-height:1.5}
+.fn-ex{
+  display:block; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+  color:var(--text3); background:var(--code-bg);
+  padding:4px 8px; border-radius:3px; margin-top:7px;
+}
+
+/* ── Stats strip ── */
+.stats-row{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:1px; background:var(--border);
+  border:1px solid var(--border); border-radius:var(--radius);
+  overflow:hidden; margin:24px 0;
+}
+.stat-cell{background:#fff; padding:16px 14px}
+.stat-n{
+  font-family:'Playfair Display',serif;
+  font-size:24px; font-weight:700; color:var(--green); line-height:1;
+}
+.stat-l{font-size:11.5px; color:var(--text2); margin-top:3px}
+
+/* ── Install cards ── */
+.i-card{background:#fff; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:18px}
+.i-card-head{
+  background:var(--bg2); border-bottom:1px solid var(--border);
+  padding:12px 18px; font-weight:600; font-size:14px;
+  display:flex; align-items:center; gap:9px;
+}
+.i-card-body{padding:18px 20px}
+.dep-table{width:100%; border-collapse:collapse; font-size:13px; margin:0}
+.dep-table td{padding:8px 0; border-bottom:1px solid var(--border)}
+.dep-table td:first-child{font-family:'IBM Plex Mono',monospace; color:var(--green); width:48%}
+.dep-table td:last-child{color:var(--text2)}
+.dep-table tr:last-child td{border-bottom:none}
+
+/* ── Contribute cards ── */
+.contrib-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:22px 0}
+.contrib-card{background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:22px 20px}
+.contrib-card h3{font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:14px; margin-bottom:7px; border:none; padding:0}
+.contrib-card p{font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:10px}
+.contrib-link{color:var(--green); font-weight:600; font-size:13px; text-decoration:none}
+.contrib-link:hover{text-decoration:underline}
+
+/* ── Grid helpers ── */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:20px 0}
+.book-row{display:flex; gap:28px; align-items:flex-start; margin:20px 0}
+.book-row img{width:140px; flex-shrink:0; box-shadow:0 6px 22px rgba(0,0,0,.13); border-radius:3px}
+.book-row-body h3{font-family:'Playfair Display',serif; font-size:17px; line-height:1.3; margin-bottom:6px; border:none; padding:0}
+.doc-card-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:20px 0}
+.doc-card{background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:22px 20px}
+.doc-card h3{font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:14px; margin:0 0 7px; border:none; padding:0}
+.doc-card p{font-size:13px; color:var(--text2); margin-bottom:8px; line-height:1.6}
+
+/* ── Footer ── */
+.footer{
+  border-top:1px solid var(--border); background:var(--bg);
+  padding:20px 32px; display:flex; justify-content:space-between;
+  align-items:center; font-size:12.5px; color:var(--text3); flex-wrap:wrap; gap:10px;
+}
+.footer a{color:var(--text2); text-decoration:none}
+.footer a:hover{color:var(--green)}
+.footer-links{display:flex; gap:18px}
+
+/* ── Eyebrow ── */
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--green);
+  margin-bottom:7px;
+}
+
+@media(max-width:900px){
+  .sidebar,.toc{display:none}
+  .content{padding:28px 22px 56px}
+  .wrap{padding:0 18px}
+  .nav{padding:0 18px}
+  .nav-right{display:none}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .contrib-grid,.two-col,.doc-card-grid{grid-template-columns:1fr}
+  .repl-body{flex-direction:column}
+  #repl-out{width:100%; border-top:1px solid var(--border)}
+  .hero-band{padding:48px 20px 40px}
+  .book-row{flex-direction:column}
+  .book-row img{width:120px}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="main-nav">
+  <a class="nav-brand" href="/">
+    <span>Ravix</span>
+  </a>
+  <div class="nav-sep"></div>
+  <div class="nav-links">
+    <a id="nb-home"        class="" href="/">Home</a>
+    <a class="" id="nb-install"                    href="/install/">Install</a>
+    <a class="" id="nb-docs"                       href="/documentation/">Documentation</a>
+    <a class="" id="nb-learn"                      href="/quickstart/">Quickstart</a>
+    <a class="" id="nb-guide"                      href="/ols-regression/">User Guide</a>
+    <a class="active" id="nb-community"                  href="/community/">Community</a>
+    <a class="" id="nb-about"                      href="/about/">About Us</a>
+    <a class="" id="nb-contribute"                 href="/contribute/">Contribute</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-pill">v<span class="ravix-version">1.0.1</span></span>
+    <a class="nav-gh" href="https://github.com/danielmcgibney/ravix" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+<div class="page active" id="page-community">
+  <div class="page-with-sidebar" style="flex:1">
+    <nav class="sidebar">
+      <div class="sidebar-section">Community</div>
+      <a href="#github">GitHub</a>
+      <a href="#resources">Textbook resources</a>
+      <a href="#stackoverflow">Stack Overflow</a>
+      <a href="#coc">Code of conduct</a>
+    </nav>
+    <div class="content">
+      <h1>Community</h1>
+      <p>Ravix is a focused package built around a single textbook. Here are the best places to get help and connect with other users.</p>
+      <h2 id="github">GitHub</h2>
+      <ul>
+        <li><strong>Source code:</strong> <a href="https://github.com/danielmcgibney/ravix" target="_blank">github.com/danielmcgibney/ravix</a></li>
+        <li><strong>Bug reports and feature requests:</strong> <a href="https://github.com/danielmcgibney/ravix/issues" target="_blank">Issues</a></li>
+      </ul>
+      <p>When reporting a bug, please include:</p>
+      <ol>
+        <li>Your Python version: <code>python --version</code></li>
+        <li>Your Ravix version: <code>import ravix; print(ravix.__version__)</code></li>
+        <li>A minimal reproducible example</li>
+        <li>The full error traceback</li>
+      </ol>
+      <h2 id="resources">Textbook resources</h2>
+      <p>The companion site <a href="https://businessregression.com" target="_blank">businessregression.com</a> contains datasets and topic summaries for all textbook chapters.</p>
+      <h2 id="stackoverflow">Stack Overflow</h2>
+      <p>Tag questions with <code>ravix</code> and <code>python</code> on <a href="https://stackoverflow.com/questions/tagged/ravix" target="_blank">Stack Overflow</a>.</p>
+      <h2 id="coc">Code of conduct</h2>
+      <p>All Ravix community spaces follow a simple standard: be respectful, be constructive, and assume good faith. The full <a href="https://github.com/danielmcgibney/ravix/blob/main/CODE_OF_CONDUCT.md" target="_blank">code of conduct</a> is in the repository.</p>
+    </div>
+  </div>
+  <div class="footer"><div>© 2026 Ravix Analytics</div><div class="footer-links"><a href="https://github.com/danielmcgibney/ravix" target="_blank">GitHub</a></div></div>
+</div>
+
+<script>
+function cp(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'copied!';
+    btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'copy'; btn.style.color = ''; }, 1800);
+  });
+}
+(function () {
+  fetch('https://pypi.org/pypi/ravix/json')
+    .then(r => r.json())
+    .then(data => {
+      const v = data.info.version;
+      document.querySelectorAll('.ravix-version').forEach(el => el.textContent = v);
+    })
+    .catch(() => { /* silently keep the fallback hardcoded value */ });
+})();
+</script>
+</body>
+</html>

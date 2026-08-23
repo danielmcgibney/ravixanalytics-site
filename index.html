@@ -3,7 +3,69 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Ravix | Python Package for Applied Business Regression</title>
+<title>Ravix | Python Regression Package for Business Analytics</title>
+<meta name="description" content="Ravix is a Python regression package for business analytics with formula-based modeling, diagnostics, model selection, visualization, and textbook datasets." id="meta-description"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://ravixanalytics.com/" id="link-canonical"/>
+<link rel="icon" type="image/png" href="https://businessregression.com/images/ravix_logo.png"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Ravix"/>
+<meta property="og:title" content="Ravix | Python Regression Package for Business Analytics" id="og-title"/>
+<meta property="og:description" content="Ravix is a Python regression package for business analytics with formula-based modeling, diagnostics, model selection, visualization, and textbook datasets." id="og-description"/>
+<meta property="og:url" content="https://ravixanalytics.com/" id="og-url"/>
+<meta property="og:image" content="https://businessregression.com/images/ravix_logo.png"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ravix | Python Regression Package for Business Analytics" id="twitter-title"/>
+<meta name="twitter:description" content="Ravix is a Python regression package for business analytics with formula-based modeling, diagnostics, model selection, visualization, and textbook datasets." id="twitter-description"/>
+<meta name="twitter:image" content="https://businessregression.com/images/ravix_logo.png"/>
+
+<!-- JSONLD_START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Ravix",
+      "url": "https://ravixanalytics.com/"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Ravix",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cross-platform (Python 3.9+)",
+      "description": "Ravix is a Python regression package for business analytics with formula-based modeling, diagnostics, model selection, visualization, and textbook datasets.",
+      "softwareVersion": "1.0.1",
+      "url": "https://ravixanalytics.com/",
+      "downloadUrl": "https://pypi.org/project/ravix/",
+      "installUrl": "https://pypi.org/project/ravix/",
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel P. McGibney",
+        "url": "https://businessregression.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ravix Analytics"
+      },
+      "sameAs": [
+        "https://github.com/danielmcgibney/ravix",
+        "https://pypi.org/project/ravix/"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  ]
+}
+</script>
+<!-- JSONLD_END -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -58,15 +120,16 @@ img{max-width:100%;height:auto}
 }
 .nav-sep{width:1px; height:18px; background:var(--border2); margin:0 12px; flex-shrink:0}
 .nav-links{display:flex; gap:2px; flex-wrap:nowrap}
-.nav-links button{
+.nav-links button, .nav-links a{
   background:none; border:none; cursor:pointer;
   color:var(--text2); font-family:'IBM Plex Sans',sans-serif;
   font-size:13.5px; font-weight:500;
   padding:6px 13px; border-radius:5px;
   transition:color .15s,background .15s;
+  text-decoration:none; display:inline-block; white-space:nowrap;
 }
-.nav-links button:hover{color:var(--text); background:var(--bg)}
-.nav-links button.active{color:var(--green); background:var(--green-lt); font-weight:600}
+.nav-links button:hover, .nav-links a:hover{color:var(--text); background:var(--bg)}
+.nav-links button.active, .nav-links a.active{color:var(--green); background:var(--green-lt); font-weight:600}
 .nav-right{margin-left:auto; display:flex; align-items:center; gap:10px}
 .nav-pill{
   font-family:'IBM Plex Mono',monospace; font-size:11px;
@@ -543,19 +606,19 @@ blockquote strong:first-child{color:var(--gold); display:block; margin-bottom:3p
 
 <!-- ═══════ NAVBAR ═══════ -->
 <nav class="nav" id="main-nav">
-  <div class="nav-brand" onclick="showPage('home')">
+  <a class="nav-brand" href="/" onclick="showPage('home');return false;">
     <span>Ravix</span>
-  </div>
+  </a>
   <div class="nav-sep"></div>
   <div class="nav-links">
-    <button id="nb-home"        class="active" onclick="showPage('home')">Home</button>
-    <button id="nb-install"                    onclick="showPage('install')">Install</button>
-    <button id="nb-docs"                       onclick="showDoc('overview')">Documentation</button>
-    <button id="nb-learn"                      onclick="showDoc('quickstart')">Quickstart</button>
-    <button id="nb-guide"                      onclick="showDoc('ols')">User Guide</button>
-    <button id="nb-community"                  onclick="showPage('community')">Community</button>
-    <button id="nb-about"                      onclick="showPage('about')">About Us</button>
-    <button id="nb-contribute"                 onclick="showPage('contribute')">Contribute</button>
+    <a id="nb-home"        class="active" href="/"                  onclick="showPage('home');return false;">Home</a>
+    <a id="nb-install"                    href="/install/"          onclick="showPage('install');return false;">Install</a>
+    <a id="nb-docs"                       href="/documentation/"    onclick="showDoc('overview');return false;">Documentation</a>
+    <a id="nb-learn"                      href="/quickstart/"       onclick="showDoc('quickstart');return false;">Quickstart</a>
+    <a id="nb-guide"                      href="/ols-regression/"   onclick="showDoc('ols');return false;">User Guide</a>
+    <a id="nb-community"                  href="/community/"        onclick="showPage('community');return false;">Community</a>
+    <a id="nb-about"                      href="/about/"            onclick="showPage('about');return false;">About Us</a>
+    <a id="nb-contribute"                 href="/contribute/"       onclick="showPage('contribute');return false;">Contribute</a>
   </div>
   <div class="nav-right">
     <span class="nav-pill">v<span class="ravix-version">1.0.1</span></span>
@@ -581,12 +644,12 @@ blockquote strong:first-child{color:var(--gold); display:block; margin-bottom:3p
     <p class="hero-sub">Fit models, run diagnostics, and visualize results in a few readable lines. Ravix handles the implementation so you can focus on the analysis.</p>
     <div class="hero-release"><strong>Latest release: Ravix <span class="ravix-version">1.0.1</span></strong> &nbsp;·&nbsp; <a href="https://pypi.org/project/ravix/#history" target="_blank" style="color:inherit">View all releases</a></div>
     <div class="hero-actions">
-      <button class="btn-p" onclick="showPage('install')">
+      <a class="btn-p" href="/install/" onclick="showPage('install');return false;">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         Install
-      </button>
-      <button class="btn-o" onclick="showDoc('overview')">Documentation</button>
-      <button class="btn-o" onclick="showDoc('quickstart')">Quickstart</button>
+      </a>
+      <a class="btn-o" href="/documentation/" onclick="showDoc('overview');return false;">Documentation</a>
+      <a class="btn-o" href="/quickstart/" onclick="showDoc('quickstart');return false;">Quickstart</a>
       <a class="btn-o" href="https://github.com/danielmcgibney/ravix" target="_blank">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
@@ -782,14 +845,14 @@ ravix.<span class="fn">plot</span>(<span class="st">"AAPL ~ SPY"</span>, df)</pr
 
     <!-- Sidebar -->
     <nav class="sidebar" id="docs-sidebar">
-      <button class="sb-link active" id="sb-overview"   onclick="showDoc('overview')">Documentation</button>
-      <button class="sb-link"        id="sb-quickstart" onclick="showDoc('quickstart')">Quickstart</button>
+      <a class="sb-link active" id="sb-overview"   href="/documentation/"    onclick="showDoc('overview');return false;">Documentation</a>
+      <a class="sb-link"        id="sb-quickstart" href="/quickstart/"       onclick="showDoc('quickstart');return false;">Quickstart</a>
       <div class="sidebar-section">User Guide</div>
-      <button class="sb-link sub"   id="sb-ols"         onclick="showDoc('ols')">OLS Fitting</button>
-      <button class="sb-link sub"   id="sb-diag"        onclick="showDoc('diag')">Model Diagnostics</button>
-      <button class="sb-link sub"   id="sb-selection"   onclick="showDoc('selection')">Model Selection</button>
-      <button class="sb-link sub"   id="sb-viz"         onclick="showDoc('viz')">Visualization</button>
-      <button class="sb-link sub"   id="sb-datasets"    onclick="showDoc('datasets')">Datasets</button>
+      <a class="sb-link sub"   id="sb-ols"         href="/ols-regression/"   onclick="showDoc('ols');return false;">OLS Fitting</a>
+      <a class="sb-link sub"   id="sb-diag"        href="/diagnostics/"      onclick="showDoc('diag');return false;">Model Diagnostics</a>
+      <a class="sb-link sub"   id="sb-selection"   href="/model-selection/"  onclick="showDoc('selection');return false;">Model Selection</a>
+      <a class="sb-link sub"   id="sb-viz"         href="/visualization/"    onclick="showDoc('viz');return false;">Visualization</a>
+      <a class="sb-link sub"   id="sb-datasets"    href="/datasets/"         onclick="showDoc('datasets');return false;">Datasets</a>
     </nav>
 
     <!-- Content -->
@@ -803,9 +866,9 @@ ravix.<span class="fn">plot</span>(<span class="st">"AAPL ~ SPY"</span>, df)</pr
         <p>Ravix is a Python package for applied regression in business analytics. It provides clean, readable functions for the full statistical analysis workflow: fitting models, running diagnostics, selecting variables, and producing publication-ready visualizations. Ravix is the companion package for <em>Applied Linear Regression for Business Analytics with Python</em> (Springer).</p>
         <hr>
         <div class="doc-card-grid">
-          <div class="doc-card"><h3>🚀 Getting started</h3><p>New to Ravix? The Quickstart covers installation, loading a dataset, fitting a model, and reading the output.</p><button onclick="showDoc('quickstart')" style="background:none;border:none;color:var(--green);font-weight:600;cursor:pointer;font-size:13px;padding:0">→ Quickstart</button></div>
-          <div class="doc-card"><h3>📖 User Guide</h3><p>In-depth coverage of OLS fitting, diagnostics, model selection, and visualization with worked examples.</p><button onclick="showDoc('ols')" style="background:none;border:none;color:var(--green);font-weight:600;cursor:pointer;font-size:13px;padding:0">→ User Guide</button></div>
-          <div class="doc-card"><h3>🤝 Contribute</h3><p>Want to improve Ravix? The contributing guide covers bugs, pull requests, tests, and documentation.</p><button onclick="showPage('contribute')" style="background:none;border:none;color:var(--green);font-weight:600;cursor:pointer;font-size:13px;padding:0">→ Contributing guide</button></div>
+          <div class="doc-card"><h3>🚀 Getting started</h3><p>New to Ravix? The Quickstart covers installation, loading a dataset, fitting a model, and reading the output.</p><a href="/quickstart/" onclick="showDoc('quickstart');return false;" style="background:none;border:none;color:var(--green);font-weight:600;cursor:pointer;font-size:13px;padding:0">→ Quickstart</a></div>
+          <div class="doc-card"><h3>📖 User Guide</h3><p>In-depth coverage of OLS fitting, diagnostics, model selection, and visualization with worked examples.</p><a href="/ols-regression/" onclick="showDoc('ols');return false;" style="background:none;border:none;color:var(--green);font-weight:600;cursor:pointer;font-size:13px;padding:0">→ User Guide</a></div>
+          <div class="doc-card"><h3>🤝 Contribute</h3><p>Want to improve Ravix? The contributing guide covers bugs, pull requests, tests, and documentation.</p><a href="/contribute/" onclick="showPage('contribute');return false;" style="background:none;border:none;color:var(--green);font-weight:600;cursor:pointer;font-size:13px;padding:0">→ Contributing guide</a></div>
         </div>
       </div>
 
@@ -1019,6 +1082,7 @@ function showPage(id) {
   const activeBtn = document.getElementById(NAV_MAP[id]);
   if (activeBtn) activeBtn.classList.add('active');
   window.scrollTo(0, 0);
+  syncRoute(id);
 }
 
 /* ── Doc sub-section routing ── */
@@ -1037,12 +1101,12 @@ const NAV_FOR_DOC = {
 
 /* ── Fragment map: doc section id → knitted HTML file ── */
 const FRAGMENT_MAP = {
-  'quickstart': 'quickstart.html',
-  'ols':        'ols.html',
-  'diag':       'diagnostics.html',
-  'selection':  'selection.html',
-  'viz':        'viz.html',
-  'datasets':   'datasets.html',
+  'quickstart': '/quickstart.html',
+  'ols':        '/ols.html',
+  'diag':       '/diagnostics.html',
+  'selection':  '/selection.html',
+  'viz':        '/viz.html',
+  'datasets':   '/datasets.html',
   /* 'overview' is baked into the HTML — no fetch needed */
 };
 
@@ -1122,7 +1186,149 @@ function showDoc(id) {
   if (sbEl) sbEl.classList.add('active');
 
   window.scrollTo(0, 0);
+  syncRoute(id === 'overview' ? 'docs' : 'docs/' + id);
 }
+
+/* ── Real per-section URLs ──
+   Each section below has its own standalone, statically-generated page at
+   the matching path (built by build_pages.py from this same template), so
+   these are genuinely separate, independently-indexable, crawlable URLs —
+   not "#" fragments. Navigating within an already-loaded page uses the
+   History API to switch instantly without a real page load; landing on
+   one of these paths directly (a search result, a shared link, a page
+   refresh) serves the real static page at that path from the server. */
+const ROUTE_PATH = {
+  'home':            '/',
+  'install':         '/install/',
+  'docs':            '/documentation/',
+  'docs/quickstart': '/quickstart/',
+  'docs/ols':        '/ols-regression/',
+  'docs/diag':       '/diagnostics/',
+  'docs/selection':  '/model-selection/',
+  'docs/viz':        '/visualization/',
+  'docs/datasets':   '/datasets/',
+  'about':           '/about/',
+  'community':       '/community/',
+  'contribute':      '/contribute/'
+};
+const PATH_ROUTE = Object.fromEntries(Object.entries(ROUTE_PATH).map(([k, v]) => [v, k]));
+
+const ROUTE_META = {
+  'home': {
+    title: 'Ravix | Python Regression Package for Business Analytics',
+    desc: 'Ravix is a Python regression package for business analytics with formula-based modeling, diagnostics, model selection, visualization, and textbook datasets.'
+  },
+  'install': {
+    title: 'Install Ravix | pip install ravix',
+    desc: 'Install Ravix with pip. Requires Python 3.9+. Covers installing from PyPI, installing from source, verifying the install, and required dependencies.'
+  },
+  'docs': {
+    title: 'Documentation | Ravix',
+    desc: 'Documentation for Ravix, a Python package for the full regression workflow: fitting OLS models, diagnostics, model selection, visualization, and bundled datasets.'
+  },
+  'docs/quickstart': {
+    title: 'Ravix Quickstart | Python Regression Tutorial',
+    desc: 'A complete Ravix workflow in five minutes: install the package, load a dataset, fit a model, and read the output.'
+  },
+  'docs/ols': {
+    title: 'OLS Regression in Python | Ravix',
+    desc: 'How to fit an ordinary least squares model in Ravix with ravix.ols() and an R-style formula string, with a worked example and summary output.'
+  },
+  'docs/diag': {
+    title: 'Regression Diagnostics in Python | Ravix',
+    desc: 'Run heteroscedasticity, normality, and multicollinearity diagnostics on a fitted Ravix regression model.'
+  },
+  'docs/selection': {
+    title: 'Model Selection in Python | Ravix',
+    desc: 'Stepwise (AIC/BIC) and best subset regression in Ravix, with structured, comparable output tables for variable selection.'
+  },
+  'docs/viz': {
+    title: 'Regression Visualization in Python | Ravix',
+    desc: 'Publication-ready scatter plots, residual histograms, correlation heatmaps, and boxplots with one-line Ravix plotting functions.'
+  },
+  'docs/datasets': {
+    title: 'Regression Datasets for Python | Ravix',
+    desc: 'Textbook datasets bundled with Ravix and loadable with a single call to get_data(), with no file paths or configuration required.'
+  },
+  'about': {
+    title: 'About Ravix | Python Regression for Business Analytics',
+    desc: 'Ravix is a statistical modeling and visualization framework for Python built for applied business regression, developed at the University of Miami as the companion package for the Springer textbook Applied Linear Regression for Business Analytics with Python.'
+  },
+  'community': {
+    title: 'Community | Ravix',
+    desc: 'Get help and connect with other Ravix users: GitHub source and issues, textbook resources, Stack Overflow, and the project code of conduct.'
+  },
+  'contribute': {
+    title: 'Contributing to Ravix',
+    desc: 'How to contribute to Ravix: report bugs, submit pull requests, improve documentation, and set up a development environment.'
+  }
+};
+
+function updateMeta(routeKey) {
+  const m = ROUTE_META[routeKey] || ROUTE_META.home;
+  const path = ROUTE_PATH[routeKey] || '/';
+  const url = 'https://ravixanalytics.com' + path;
+  document.title = m.title;
+  const set = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
+  set('meta-description', 'content', m.desc);
+  set('link-canonical', 'href', url);
+  set('og-title', 'content', m.title);
+  set('og-description', 'content', m.desc);
+  set('og-url', 'content', url);
+  set('twitter-title', 'content', m.title);
+  set('twitter-description', 'content', m.desc);
+}
+
+let currentRouteKey = routeFromPathInit();
+function routeFromPathInit() {
+  return PATH_ROUTE[location.pathname] || 'home';
+}
+
+function syncRoute(routeKey) {
+  currentRouteKey = routeKey;
+  updateMeta(routeKey);
+  const path = ROUTE_PATH[routeKey] || '/';
+  if (location.pathname !== path) {
+    /* pushState throws on file:// (and some other restricted contexts) since it
+       can't create a history entry at a different path for that origin. Left
+       uncaught, that exception would propagate out of showPage()/showDoc() and
+       skip the inline handler's "return false", so the browser would then follow
+       the link's real href — e.g. straight to a nonexistent file:///about/.
+       Catching it just means the URL bar won't update there; the section change
+       itself (already done above/by the caller) still works fine either way. */
+    try { history.pushState(null, '', path); } catch (e) {}
+  }
+}
+
+function routeFromPath() {
+  /* null (not 'home') when location.pathname isn't one of our known routes —
+     e.g. opened via file://, or a same-page "#anchor" link (which also fires
+     popstate). Each page already renders its own correct section server-side,
+     so an unrecognized path must leave that state alone rather than forcing
+     the page back to Home. */
+  return PATH_ROUTE[location.pathname] || null;
+}
+
+function applyRoute(routeKey) {
+  if (!routeKey) return;
+  if (routeKey === currentRouteKey) {
+    /* Same route as what's already showing — most commonly a same-page "#anchor"
+       link, which also fires popstate. Re-running showPage()/showDoc() here would
+       call their trailing window.scrollTo(0,0) and cancel the browser's own
+       scroll-to-anchor, so just leave the page alone. */
+    return;
+  }
+  if (routeKey.indexOf('docs/') === 0) {
+    showDoc(routeKey.slice(5));
+  } else if (routeKey === 'docs') {
+    showDoc('overview');
+  } else if (PAGES.includes(routeKey)) {
+    showPage(routeKey);
+  }
+}
+
+window.addEventListener('popstate', () => applyRoute(routeFromPath()));
+applyRoute(routeFromPath());
 
 /* ── REPL ── */
 const EX = {
@@ -1227,8 +1433,8 @@ function cp(btn, text) {
 })();
 
 </script>
-<script src="repl_assets.js"></script>
-<script src="fragments.js"></script>
+<script src="/repl_assets.js"></script>
+<script src="/fragments.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </body>
 </html>
